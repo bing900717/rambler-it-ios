@@ -27,7 +27,7 @@
 #pragma mark - RamblerLocationRouterInput
 
 - (void)openMapsWithUrl:(NSURL *)mapUrl {
-    [self.application openURL:mapUrl];
+    [self.application openURL:mapUrl options:@{} completionHandler:nil];
 }
 
 @end

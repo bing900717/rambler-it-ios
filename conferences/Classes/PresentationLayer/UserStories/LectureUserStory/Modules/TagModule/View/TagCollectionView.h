@@ -22,16 +22,18 @@
 #import "TagDataDisplayManager.h"
 #import "TagViewInput.h"
 #import "TagModuleInput.h"
+#import "TagViewOutput.h"
 
 @class TagDataDisplayManager;
 @class TagCellSizeConfig;
 
 
-@interface TagCollectionView : UICollectionView <TagViewInput, TagModuleInput>
+@interface TagCollectionView : UICollectionView <TagViewInput, TagModuleInput, TagDataDisplayManagerDelegate>
 
 + (TagCollectionView *)collectionView;
 
 @property (nonatomic, strong) id<TagModuleInput> moduleInput;
+@property (nonatomic, weak) id<TagViewOutput> output;
 @property (nonatomic, strong) TagDataDisplayManager *dataDisplayManager;
 @property (nonatomic, strong) TagCellSizeConfig *cellSizeConfig;
 

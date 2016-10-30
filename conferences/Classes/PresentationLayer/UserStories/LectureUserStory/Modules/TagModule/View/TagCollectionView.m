@@ -23,7 +23,6 @@
 #import "TagModuleInput.h"
 #import "TagCellSizeConfig.h"
 
-
 @implementation TagCollectionView
 
 + (TagCollectionView *)collectionView {
@@ -32,7 +31,7 @@
                                         options:NULL] firstObject];
 }
 
-#pragma mark - Методы TagViewInput
+#pragma mark - <TagViewInput>
 
 - (void)setupInitialState {
     id <UICollectionViewDelegate> delegate = [self.dataDisplayManager delegateForCollectionView:self];
@@ -61,7 +60,6 @@
 }
 
 - (CGFloat)obtainHeightTagCollectionViewWithTags:(NSArray *)tags {
-    
     return [self.dataDisplayManager obtainHeightTagCollectionViewWithTags:tags];
 }
 
@@ -69,7 +67,7 @@
     self.dataDisplayManager.numberOfShowLine = lines;
 }
 
-#pragma mark - Методы TagModuleInput
+#pragma mark - <TagModuleInput>
 
 - (void)configureModuleWithModuleConfig:(TagModuleConfig *)moduleConfig
                            moduleOutput:(id <TagModuleOutput>)moduleOutput {
@@ -81,6 +79,10 @@
     return [self.moduleInput obtainHeightTagModuleViewWithModuleConfig:moduleConfig];
 }
 
+#pragma mark - <TagDataDisplayManagerDelegate>
 
+- (void)didTapTagWithName:(NSString *)tagName {
+    [self.output didTriggerTagTapEventWithTagName:tagName];
+}
 
 @end

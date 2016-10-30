@@ -1324,6 +1324,7 @@
 		9F4077AF1D2E371C00D47EF6 /* DirectionCellObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DirectionCellObject.m; path = CellObjects/DirectionCellObject.m; sourceTree = "<group>"; };
 		9F4077B21D2E38AB00D47EF6 /* DirectionCellObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DirectionCellObjectFactory.h; path = CellObjectFactory/DirectionCellObjectFactory.h; sourceTree = "<group>"; };
 		9F4077B31D2E38AB00D47EF6 /* DirectionCellObjectFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DirectionCellObjectFactory.m; path = CellObjectFactory/DirectionCellObjectFactory.m; sourceTree = "<group>"; };
+		9F40857E1DC6415F009CA5C1 /* TagViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagViewOutput.h; path = TagModule/View/TagViewOutput.h; sourceTree = "<group>"; };
 		9F40977F1D51F63C008BFE42 /* ObjectTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectTransformer.h; path = SpotlightIndexer/ObjectTransformers/Protocols/ObjectTransformer.h; sourceTree = "<group>"; };
 		9F4097821D51F658008BFE42 /* EventObjectTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventObjectTransformer.h; path = SpotlightIndexer/ObjectTransformers/ConcreteClasses/EventObjectTransformer/EventObjectTransformer.h; sourceTree = "<group>"; };
 		9F4097831D51F658008BFE42 /* EventObjectTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventObjectTransformer.m; path = SpotlightIndexer/ObjectTransformers/ConcreteClasses/EventObjectTransformer/EventObjectTransformer.m; sourceTree = "<group>"; };
@@ -4405,6 +4406,7 @@
 				66E9996B1D54B06400161D98 /* TagCollectionView.m */,
 				66E9996C1D54B06400161D98 /* TagCollectionView.xib */,
 				66E9996D1D54B06400161D98 /* TagViewInput.h */,
+				9F40857E1DC6415F009CA5C1 /* TagViewOutput.h */,
 				66E999691D54B05300161D98 /* DataDisplayManager */,
 			);
 			name = View;

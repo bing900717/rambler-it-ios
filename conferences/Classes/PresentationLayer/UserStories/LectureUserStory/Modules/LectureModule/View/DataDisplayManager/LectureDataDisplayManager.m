@@ -29,6 +29,7 @@
 #import "LectureMaterialInfoTableViewCellObject.h"
 #import "LectureMaterialPlainObject.h"
 #import "NITyphoonCellFactory.h"
+
 @interface LectureDataDisplayManager ()
 
 @property (strong, nonatomic) NITableViewModel *tableViewModel;

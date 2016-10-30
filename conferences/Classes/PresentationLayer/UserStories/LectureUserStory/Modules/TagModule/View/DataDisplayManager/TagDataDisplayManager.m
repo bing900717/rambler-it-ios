@@ -77,6 +77,11 @@ typedef NS_ENUM(NSInteger, TagSectionIndex) {
     return UIEdgeInsetsMake(kTagSectionTopInset, 0, 0, 0);
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    TagCollectionViewCellObject *cellObject = [self.collectionViewModule objectAtIndexPath:indexPath];
+    [self.delegate didTapTagWithName:cellObject.tagName];
+}
+
 #pragma mark - Cell objects generation
 
 - (NSArray *)generateCellObjects:(NSArray *)tags {

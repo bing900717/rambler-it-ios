@@ -38,6 +38,8 @@
                               [definition useInitializer:@selector(collectionView)];
                               [definition injectProperty:@selector(moduleInput)
                                                     with:[self presenterTagModule]];
+                              [definition injectProperty:@selector(output)
+                                                    with:[self presenterTagModule]];
                               [definition injectProperty:@selector(dataDisplayManager)
                                                     with:[self dataDisplayManagerTagModule]];
                               [definition injectProperty:@selector(cellSizeConfig)
@@ -68,6 +70,8 @@
                           configuration:^(TyphoonDefinition *definition) {
                               [definition injectProperty:@selector(cellSizeCalculator)
                                                     with:[self tagCellSizeCalculatorTagModule]];
+                              [definition injectProperty:@selector(delegate)
+                                                    with:[self collectionViewTagModule]];
                           }];
 }
 

@@ -18,17 +18,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "TagModuleInput.h"
+#import <Foundation/Foundation.h>
 
-#import "TagViewOutput.h"
+@protocol TagViewOutput <NSObject>
 
-@protocol TagViewInput;
-@protocol TagInteractorInput;
+/**
+ Method tells an output that a tag was tapped
 
-@interface TagPresenter : NSObject <TagModuleInput, TagViewOutput>
-
-@property (nonatomic, weak) id<TagViewInput> view;
-@property (nonatomic, strong) id<TagInteractorInput> interactor;
-@property (nonatomic, weak) id<TagModuleOutput> output;
+ @param name Tag name
+ */
+- (void)didTriggerTagTapEventWithTagName:(NSString *)name;
 
 @end

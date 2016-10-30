@@ -23,15 +23,17 @@
 @class NITableViewModel;
 @class NICollectionViewModel;
 @class TagCellSizeCalculator;
+@protocol TagDataDisplayManagerDelegate;
 
 @interface TagDataDisplayManager : NSObject <UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) TagCellSizeCalculator *cellSizeCalculator;
+@property (nonatomic, weak) id<TagDataDisplayManagerDelegate> delegate;
 
 /**
  @author Golovko Mikhail
 
- Количество отображаемых строк.
+ Number of displaying lines.
  */
 @property (nonatomic, assign) NSInteger numberOfShowLine;
 
@@ -43,11 +45,22 @@
 /**
  @author Konstantin Zinovyev
  
- Метод для получения высоты модуля тэгов
+ Method th get height of tags
  
- @param tags Тэги, по которым считается высота
- @return Высота модуля тэгов
+ @param tags Tags to count height
+ @return Overall module height
  */
 - (CGFloat)obtainHeightTagCollectionViewWithTags:(NSArray *)tags;
+
+@end
+
+@protocol TagDataDisplayManagerDelegate <NSObject>
+
+/**
+ Method tells delegate that a tag was tapped
+
+ @param tagName The name of the tag
+ */
+- (void)didTapTagWithName:(NSString *)tagName;
 
 @end

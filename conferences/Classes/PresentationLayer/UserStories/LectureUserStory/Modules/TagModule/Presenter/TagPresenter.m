@@ -33,7 +33,7 @@
 
 @implementation TagPresenter
 
-#pragma mark - Методы TagModuleInput
+#pragma mark - <TagModuleInput>
 
 - (void)configureModuleWithModuleConfig:(TagModuleConfig *)moduleConfig
                            moduleOutput:(id <TagModuleOutput>)moduleOutput {
@@ -55,8 +55,13 @@
     return [self.view obtainHeightTagCollectionViewWithTags:tags];
 }
 
+#pragma mark - <TagViewOutput>
 
-#pragma mark - Дополнительные методы
+- (void)didTriggerTagTapEventWithTagName:(NSString *)name {
+    [self.output didTapTagWithName:name];
+}
+
+#pragma mark - Other methods
 
 - (void)updateTagsInViewWithModuleConfig:(TagModuleConfig *)moduleConfig {
     NSArray *tags = [self.interactor obtainTagsFromObjectDescriptor:moduleConfig.objectDescriptor];

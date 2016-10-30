@@ -44,15 +44,7 @@ typedef NS_ENUM(NSInteger, TagSectionIndex) {
 
 @implementation TagDataDisplayManager
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-    }
-
-    return self;
-}
-
-#pragma mark - Методы интерфейса
+#pragma mark - Public methods
 
 - (id <UICollectionViewDelegate>)delegateForCollectionView:(UICollectionView *)collectionView {
     return self;
@@ -67,7 +59,7 @@ typedef NS_ENUM(NSInteger, TagSectionIndex) {
     return self.collectionViewModule;
 }
 
-#pragma mark - Методы UICollectionViewDelegateFlowLayout
+#pragma mark - <UICollectionViewDelegateFlowLayout>
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout*)collectionViewLayout
@@ -85,7 +77,7 @@ typedef NS_ENUM(NSInteger, TagSectionIndex) {
     return UIEdgeInsetsMake(kTagSectionTopInset, 0, 0, 0);
 }
 
-#pragma mark - Методы генерации объектов ячеек
+#pragma mark - Cell objects generation
 
 - (NSArray *)generateCellObjects:(NSArray *)tags {
     NSMutableArray *tagObjects = [NSMutableArray array];
@@ -125,8 +117,6 @@ typedef NS_ENUM(NSInteger, TagSectionIndex) {
 
     return [showObjects copy];
 }
-
-#pragma mark - Методы создания объектов ячеек
 
 - (TagCollectionViewCellObject *)createTagCellWithName:(NSString *)tagName {
     TagCollectionViewCellObject *object = [[TagCollectionViewCellObject alloc] initWithTagName:tagName];

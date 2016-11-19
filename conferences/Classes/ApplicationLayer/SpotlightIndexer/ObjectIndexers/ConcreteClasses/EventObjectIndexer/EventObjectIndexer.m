@@ -27,6 +27,7 @@
 
 #import <CoreSpotlight/CoreSpotlight.h>
 #import <MobileCoreServices/MobileCoreServices.h>
+#import <SDImageCache.h>
 
 @implementation EventObjectIndexer
 
@@ -43,8 +44,14 @@
     NSString *eventDescription = [self generateEventDescriptionForEvent:object];
     attributeSet.contentDescription = eventDescription;
     
+    SDImageCache *imageCache = [SDImageCache sharedImageCache];
+    UIImage *image = [imageCache imageFromMemoryCacheForKey:object.imageUrl];
+    attributeSet.thumbnailData = UIImageJPEGRepresentation(image,1);
+    
     attributeSet.startDate = object.startDate;
     attributeSet.endDate = object.endDate;
+    attributeSet.dueDate = object.startDate;
+    attributeSet.completionDate = object.startDate;
     
     NSArray *keywords = [self generateKeywordsForEvent:object];
     attributeSet.keywords = keywords;

@@ -25,6 +25,7 @@
 
 #import <CoreSpotlight/CoreSpotlight.h>
 #import <MobileCoreServices/MobileCoreServices.h>
+#import <SDImageCache.h>
 
 @implementation SpeakerObjectIndexer
 
@@ -37,6 +38,10 @@
 - (CSSearchableItem *)searchableItemForObject:(SpeakerModelObject *)object {
     CSSearchableItemAttributeSet *attributeSet = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:(NSString *)kUTTypeJSON];
     attributeSet.title = object.name;
+    
+    SDImageCache *imageCache = [SDImageCache sharedImageCache];
+    UIImage *image = [imageCache imageFromMemoryCacheForKey:object.imageUrl];
+    attributeSet.thumbnailData = UIImageJPEGRepresentation(image,1);
     
     NSString *speakerDescription = [self generateSpeakerDescriptionForSpeaker:object];
     attributeSet.contentDescription = speakerDescription;

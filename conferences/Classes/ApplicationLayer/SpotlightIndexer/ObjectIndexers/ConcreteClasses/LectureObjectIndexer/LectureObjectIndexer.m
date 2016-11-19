@@ -21,11 +21,13 @@
 #import "LectureObjectIndexer.h"
 
 #import "LectureModelObject.h"
+#import "SpeakerModelObject.h"
 #import "TagModelObject.h"
 #import "SpotlightIndexerConstants.h"
 
 #import <CoreSpotlight/CoreSpotlight.h>
 #import <MobileCoreServices/MobileCoreServices.h>
+#import <SDImageCache.h>
 
 @implementation LectureObjectIndexer
 
@@ -39,6 +41,10 @@
     CSSearchableItemAttributeSet *attributeSet = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:(NSString *)kUTTypeJSON];
     attributeSet.title = object.name;
     attributeSet.contentDescription = object.lectureDescription;
+    
+    SDImageCache *imageCache = [SDImageCache sharedImageCache];
+    UIImage *image = [imageCache imageFromMemoryCacheForKey:object.speaker.imageUrl];
+    attributeSet.thumbnailData = UIImageJPEGRepresentation(image,1);
     
     NSArray *keywords = [self generateKeywordsForLecture:object];
     attributeSet.keywords = keywords;
